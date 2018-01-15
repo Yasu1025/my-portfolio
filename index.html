@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Yasuhiro Kitasaka | Front End Developer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
     <div id="main_wrapper">
-        <header>
+        <header class="container">
                 <nav class="clearfix">
                     <div class="nav_left">
                         <a href=""><h1>Yasuhiro Kitasaka</h1></a>
                     </div>
                     <div class="nav_right">
                         <ul>
-                            <li><a href="">Works(active default)</a></li>
+                            <li><a href="">Works</a></li>
                             <li><a href="">About</a></li>
                         </ul>
                     </div>
@@ -26,30 +27,40 @@
         <article id="content_wrapper">
 
             <article id="work_wrapper">
-                <section class="work_slider">
-                    <div class="slideset">
-                        <div class="slide01 slide">
-                            <p>Insert Image here</p>
-                            <h2>Slide01</h2>
-                        </div>
-                        <div class="slide02 slide">
-                                <p>Insert Image here</p>
-                                <h2>Slide02</h2>
-                        </div>
-                        <div class="slide03 slide">
-                                <p>Insert Image here</p>
-                                <h2>Slide03</h2>
-                        </div> 
-                    </div>   
+                <section class="slide_container">
+                    <div class="work_slider">
+                        <div class="slideset">
+                            <div class="slide01 slide">
+                                <div>
+                                    <p>Insert Image here</p>
+                                    <h2>Slide01</h2>
+                                </div>
+                            </div>
+                            <div class="slide02 slide">
+                                <div>
+                                    <p>Insert Image here</p>
+                                    <h2>Slide02</h2>
+                                </div>
+                            </div>
+                            <div class="slide03 slide">
+                                <div>
+                                    <p>Insert Image here</p>
+                                    <h2>Slide03</h2>
+                                </div>
+                            </div> 
+                        </div>   
+                    </div>
                 </section>
+
+                <section class="work_contents"></section>
             </article>
 
-            <section>
-                <div id="home_page_nav">
-                    <div class="home_arrow_prev">Prev</div>
-                    <div class="home_arrow_next">Next</div>
+            <footer class="container">
+                <div class="home_page_nav">
+                    <button class="home_arrow_prev"><i class="fa fa-caret-left fa-4x" aria-hidden="true"></i></button>
+                    <button class="home_arrow_next"><i class="fa fa-caret-right fa-4x" aria-hidden="true"></i></button>
                 </div>
-            </section>
+            </footer>
 
         </article> <!-- /content_wrapper -->
 

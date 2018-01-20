@@ -4,7 +4,7 @@
 $(document).ready(function(){
 
     Slider();
-    slideFromRight()
+    slideFromRight();
 
     ToonSlide('.slide01');
     ToonSlide('.slide02');
@@ -69,12 +69,17 @@ $(document).ready(function(){
     }
 
     function ToonSlide(targetSlide){
-        $(targetSlide).click(function(){
+        var h = "40vw";
+        $(document).one('click',targetSlide ,function(e){
             $('.slide').not(this).hide();
             $(".slideset").css({"left": 0});
-            $('.slide_container,  .slideset').animate({"width": "100vw", "height":"30vw"});
-            $(this).animate({"width": "100vw", "height":"30vw"}, 800);
-    
+            $('.slide_container,  .slideset').animate({"width": "100vw", "height":h}, 500, function(){
+                $('.work_contents').hide();
+                $('.work_contents').addClass("work_container");
+                $('.work_contents').load('pages/work.html');
+                $('.work_contents'). fadeIn(500);
+            });
+            $(this).animate({"width": "100vw", "height":h}, 800);
             $('.home_page_nav').hide();
         })
         
@@ -91,7 +96,8 @@ $(document).ready(function(){
             }
         })
 
-        $(document).on('click','#about_open',function(){
+        $(document).on('click','#about_open',function(e){
+
             $('#about_page').load('pages/about.html');
             flag = true;
             $('#about_page').stop().animate({"right": 0}, 800, function(){

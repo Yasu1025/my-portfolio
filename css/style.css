@@ -159,7 +159,7 @@ header{
 /* ::::::::::::::::::::: Work Contents ::::::::::::::::: */
 
 .work_container{
-    padding: 3vmax 6vmax
+    padding: 10vmax 6vmax
 }
 
 .work_contents{
@@ -178,9 +178,48 @@ header{
 .work_images_container{
     margin: 0 auto;
 }
+
+.work_images{
+    width: 100%;
+    margin: 0 auto
+}
+
+
 .work_images_container ul li img{
-    width: 300px;
-    max-width: 300px;
-    display: block;
+    width: 50%;
+    padding: 2em;
+    /* max-width: 300px; */
+    display: inline-block;
     float: left
+}
+
+.grey_bg_works{
+    background-color: #ececec;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2em
+}
+
+.close_work{
+    width: 6.5vmax;
+    height: 6.5vmax;
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    background-color: skyblue;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 4.5vmax;
+    opacity:.8
+
+}
+
+.close_work > p > a{
+    width: 6.5vmax;
+    height: 6.5vmax;
+    display: block;
+    color: #FFF;
+    font-size: 2em;
+    line-height: 6.5vmax;
 }

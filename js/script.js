@@ -105,6 +105,7 @@ $(document).ready(function(){
             });
             $('#about_open').addClass("active");
             $('#work_open').removeClass("active");
+            $('.home_page_nav').hide();
             
         });
 
@@ -120,6 +121,10 @@ $(document).ready(function(){
             
             $('#about_open').removeClass("active");
             $('#work_open').addClass("active");
+            if(!$('article').hasClass('work_body')){
+                $('.home_page_nav').show();
+            }
+            
         })
             
     }

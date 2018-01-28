@@ -9,16 +9,19 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+
+    <div class="for_loading"></div>
+
     <div id="main_wrapper">
         <header class="container">
                 <nav class="clearfix">
                     <div class="nav_left">
-                        <a href=""><h1>Yasuhiro Kitasaka</h1></a>
+                        <a href=""><h1 class="site_title">YASUHIRO.K</h1></a>
                     </div>
                     <div class="nav_right">
                         <ul>
-                            <li><a href="">Works</a></li>
-                            <li><a href="">About</a></li>
+                            <li><a id="work_open" class="active">Works</a></li>
+                            <li><a  id="about_open">About</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -27,32 +30,49 @@
         <article id="content_wrapper">
 
             <article id="work_wrapper">
+
                 <section class="slide_container">
+
+                        <section id="about_page"></section>
+                        
                     <div class="work_slider">
+
+                        
+
                         <div class="slideset">
                             <div class="slide01 slide">
-                                <div>
-                                    <p>Insert Image here</p>
-                                    <h2>Slide01</h2>
+                                <div class="slide_inside">
+                                    <img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/1200x630/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F4142762%2Fimages%2Fn-VANCOUVER-FASHION-WEEK-628x314.jpg">
+                                    <div>
+                                        <h2>Vancouver Fashion Week</h2>
+                                        <p>Graphic and Web development</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="slide02 slide">
-                                <div>
-                                    <p>Insert Image here</p>
-                                    <h2>Slide02</h2>
+                                <div class="slide_inside">
+                                    <img src="https://i.ytimg.com/vi/WDWPc6ntFOk/maxresdefault.jpg" >
+                                    <div>
+                                        <h2>BUNGOBOX Vancouver</h2>
+                                        <p>Social Media Marketer (Internship)</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="slide03 slide">
-                                <div>
-                                    <p>Insert Image here</p>
-                                    <h2>Slide03</h2>
+                                <div class="slide_inside">
+                                    <img src="./images/milleniax/milleniax.jpg">
+                                    <div>
+                                        <h2>Milleniax</h2>
+                                        <p>Web Design</p>
+                                    </div>
                                 </div>
                             </div> 
                         </div>   
                     </div>
                 </section>
 
-                <section class="work_contents"></section>
+                <section class="work_contents">
+                </section>
             </article>
 
             <footer class="container">

@@ -1,4 +1,4 @@
-*, *:after, *:before {
+*, *:after, *:before{
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing: border-box;
@@ -13,46 +13,121 @@
 	clear: both;
 }
 
+@font-face {
+    font-family: 'dual-300';
+    src: url("../font/Dual-300.ttf");
+  }
+
 body{
     background-color: #FFF;
-    font-family: 'Gill Sans', sans-serif;
+    font-family: 'dual-300', sans-serif;
     font-size: 100%;
     width: 100%;
     height: 100%;
-    color: #444
+    color: #444;
+    line-height: 1.5
 }
 a{
-    color: #444
+    color: #444;
+    transition: .2s;
+    cursor: pointer;
+}
+a:hover{
+    color: #EE465E
 }
 
 #main_wrapper{
     position: relative;
     width: 100%;
     height: 100%;
-    /* overflow: hidden; */
 }
 
 .container{
-    padding: 0 1em
+    padding: 0 6vmax
 }
+
+.for_loading{
+    width: 100vmax;
+    height: 100vmax;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ececec;
+    display: none
+}
+
+h2{
+    font-weight: bold;
+}
+
+/* ::::::::::::::::::::: about ::::::::::::::::: */
+#about_page{
+    z-index: 9999;
+    width: calc(100vw - 12vmax);
+    height: calc(100vh - 10vmax);
+    position: absolute;
+    right:-9999px;
+    background-color: #FFF;
+    overflow: hidden
+}
+#about_me{
+    /* width: calc(100vw - 12vmax);
+    height: calc(100vh - 10vmax); */
+    background-color:#FDEDE4;
+    display: none;
+    padding: 2em 4em;
+}
+
+#about_me h1{
+    font-size: 4em;
+    border-bottom: 1px solid black;
+    margin-bottom: .5em;
+    width: 50%
+}
+
+#about_me p{
+    margin-bottom: 2em
+}
+#about_me ul{
+    margin-bottom: 1em
+}
+#about_me ul li{
+    display: inline-block;
+    margin-right:1em;
+}
+.sns_icons{
+    font-size: 2em
+}
+
 
 /* ::::::::::::::::::::: header ::::::::::::::::: */
 
 header{
     width: 100%;
     height: 5.5vmax;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+    /* text-align: center; */
     line-height: 5.5vmax
+}
+.site_title{
+    font-weight: bold;
+    color: #EE465E
+}
+.active{
+    font-weight: bold;
+    color: #EE465E;
+    cursor: auto
 }
 
 .nav_left{
     float: left;
-    width:50%
+    width:50%;
+    text-align: left
 }
 .nav_right{
     float: right;
-    width:50%
+    width:50%;
+    text-align: right
 }
 
 .nav_right > ul >li{
@@ -99,25 +174,51 @@ header{
 .slide{
     float:left;
     display: table;
-    color: #FFF
+    color: #FFF;
+    background-size: cover;
+    cursor: pointer
 }
 
-.slide > div{
+.slide_inside{
     text-align: center;
     margin: 0 auto;
     display: table-cell;
-    vertical-align: middle
+    vertical-align: middle;
+    position: relative
 }
-.slide > div > h2{
+.slide_inside > img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    -webkit-filter: brightness(0.7);
+    -moz-filter: brightness(0.7);
+    -o-filter: brightness(0.7);
+    -ms-filter: brightness(0.7);
+    filter: brightness(0.7);
+}
+
+.slide_inside > div{
     font-weight: bold;
-    font-size: 700%
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.slide_inside > div > h2{
+    font-size: 400%;
 }
 
 .slide01{
-    background-color: skyblue
+    /* background-image: url("https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/1200x630/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F4142762%2Fimages%2Fn-VANCOUVER-FASHION-WEEK-628x314.jpg") */
 }
 .slide02{
-    background-color: pink
+    
 }
 .slide03{
     background-color: yellow
@@ -133,4 +234,83 @@ header{
 }
 .home_arrow_next{
     float: right
+}
+
+/* ::::::::::::::::::::: Work Contents ::::::::::::::::: */
+
+.work_container{
+    padding: 10vmax 6vmax
+}
+
+.work_contents{
+}
+
+.work_descriptions > .desc_left{
+    float: left;
+    width:50%;
+}
+.work_descriptions > .desc_right{
+    float: left;
+    width:50%;
+}
+
+.work_images_container{
+    margin: 6em auto;
+    text-align: center;
+}
+
+.work_images{
+    width: 100%;
+    margin: 0 auto
+}
+
+
+.work_images_container ul li img{
+    width: 50%;
+    padding: 2em;
+    /* max-width: 300px; */
+    display: inline-block;
+    float: left
+}
+
+.grey_bg_works{
+    background-color: #ececec;
+    width: 100%;
+    padding: 2em
+}
+
+.work_image{
+    width:80%;
+}
+
+.full_img{
+    padding: 0;
+}
+.full_img > img{
+    width: 100%;
+    height: 100%;
+}
+.close_work{
+    width: 6.5vmax;
+    height: 6.5vmax;
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    background-color:#EE465E;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 4.5vmax;
+    opacity:.8
+
+}
+
+.close_work > span{
+    width: 6.5vmax;
+    height: 6.5vmax;
+    display: block;
+    color: #FFF;
+    font-size: 2em;
+    line-height: 6.5vmax;
+    cursor: pointer
 }

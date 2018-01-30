@@ -14,13 +14,17 @@
 }
 
 @font-face {
-    font-family: 'dual-300';
-    src: url("../font/Dual-300.ttf");
+    font-family: 'GOTHAM';
+    src: url("../font/GOTHAM-MEDIUM.ttf");
+  }
+@font-face {
+    font-family: 'GOTHAM-bold';
+    src: url("../font/GOTHAM-BOLD.ttf");
   }
 
 body{
     background-color: #FFF;
-    font-family: 'dual-300', sans-serif;
+    font-family: 'GOTHAM', Arial, sans-serif;
     font-size: 100%;
     width: 100%;
     height: 100%;
@@ -46,19 +50,70 @@ a:hover{
     padding: 0 6vmax
 }
 
-.for_loading{
-    width: 100vmax;
-    height: 100vmax;
-    z-index: 999999;
+#for_loading{
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #ececec;
+    background-color: #eee;
     display: none
 }
 
-h2{
+.spinner {
+    width: 100px;
+    height: 100px;
+    display: none;
+    position: relative;
+    text-align: center;
+	top: calc(50% - 50px);
+	margin: 0 auto;
+
+  }
+  
+  .double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #EE465E;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  
+  .double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bounce {
+    0%, 100% { 
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% { 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+  }
+
+
+
+
+h1, h2, h3{
     font-weight: bold;
+    font-family: 'GOTHAM-bold'
 }
 
 /* ::::::::::::::::::::: about ::::::::::::::::: */
@@ -76,12 +131,13 @@ h2{
     height: calc(100vh - 10vmax); */
     background-color:#FDEDE4;
     display: none;
+    height: 100%;
     padding: 2em 4em;
 }
 
 #about_me h1{
     font-size: 4em;
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid #333;
     margin-bottom: .5em;
     width: 50%
 }
@@ -136,6 +192,8 @@ header{
 .nav_right > ul >li:first-child{
     margin-right: 1em
 }
+/* ::::::::::::::::::::: Slider ::::::::::::::::: */
+
 
 /* ::::::::::::::::::::: Slider ::::::::::::::::: */
 
@@ -175,7 +233,8 @@ header{
     float:left;
     display: table;
     color: #FFF;
-    background-size: cover;
+    background-color: #FDEDE4;
+    /* background-size: cover; */
     cursor: pointer
 }
 
@@ -187,42 +246,29 @@ header{
     position: relative
 }
 .slide_inside > img{
-    width: 100%;
-    height: 100%;
+    width: 40%;
+    /* height: 70%; */
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
-    -webkit-filter: brightness(0.7);
-    -moz-filter: brightness(0.7);
-    -o-filter: brightness(0.7);
-    -ms-filter: brightness(0.7);
-    filter: brightness(0.7);
+    margin: auto; 
 }
 
 .slide_inside > div{
     font-weight: bold;
     position: absolute;
-    top: 50%;
+    top: 45%;
     right: 0;
     bottom: 0;
     left: 0;
 }
 .slide_inside > div > h2{
-    font-size: 400%;
+    font-size: 500%;;
 }
 
-.slide01{
-    /* background-image: url("https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/1200x630/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F4142762%2Fimages%2Fn-VANCOUVER-FASHION-WEEK-628x314.jpg") */
-}
-.slide02{
-    
-}
-.slide03{
-    background-color: yellow
-}
+
 
 .home_page_nav{
     width: 100%;
@@ -300,6 +346,7 @@ header{
     font-weight: bold;
     text-align: center;
     margin: 0 auto;
+    margin-left: -3.25vmax;
     border-radius: 4.5vmax;
     opacity:.8
 

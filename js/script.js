@@ -1,43 +1,73 @@
+// Global var
+
+var winWidth = $(window).width();
+var smartPhoneWidth = 600;
+var tabletWidth = 959;
+var currentWork ;
+var current = 0;
+var headerHeight = $("header").height();
+var footerHeight = $(".home_page_nav").height();
+var defaultWidth = winWidth <= smartPhoneWidth ? "100vw" : "calc(100vw - 12vmax)";
+var defaulHeight = winWidth <= smartPhoneWidth ? "100vh" : "calc(100vh - 10vmax)";
+
+var slideWidth = $('.slide').outerWidth();
+var slideNum = $('.slide').length;
+var allSlideWidth = slideWidth * slideNum;
+
+
 $(document).ready(function(){
-
-    
-
+    WindowResize();
     Slider();
     SlideFromRight();
     CloseWork();
 
-    ToonSlide('.slide01');
-    ToonSlide('.slide02');
-    ToonSlide('.slide03');
+    ToonSlide('.vfw');
+    ToonSlide('.bungobox');
+    ToonSlide('.milleniax');
         // $('.work_contents').load('pages/work.html')
-    
     
 });
 
-// Global var
 
-var currentWork ;
-var current = 0;
+
+function WindowResize(){
+    $(window).resize(function(){
+        winWidth = $(window).width();
+        defaultWidth = winWidth <= smartPhoneWidth ? "100vw" : "calc(100vw - 12vmax)";
+        defaulHeight = winWidth <= smartPhoneWidth ? "100vh" : "calc(100vh - 10vmax)";
+        slideWidth = $('.slide').outerWidth();
+        allSlideWidth = slideWidth * slideNum;
+
+        if(!$('.work_body').length){ 
+            $('.slide_container,  .slide').css({'width': defaultWidth, "height": defaulHeight})
+        }
+        $('.slideset').css({"width": allSlideWidth});
+        
+    })
+}
+
+
+
+
+    $('head').append(
+        '<style type="text/css">#main_wrapper { display: none; } #for_loading, .spinner { display: block; }</style>'
+    );
+    jQuery.event.add(window,"load",function(){
+        $("#for_loading").delay(900).fadeOut(800);
+        $(".spinner").delay(600).fadeOut(300);
+        $("#main_wrapper").css("display", "block");
+    })
+
     
 
 
     function Slider(){
                 // Slider
 
-        var slideWidth = $('.slide').outerWidth();
-        var slideNum = $('.slide').length;
-        var allSlideWidth = slideWidth * slideNum;
+        
         
 
-        $(window).resize(function(){
-            
-            slideWidth = $('.slide').outerWidth();
-            allSlideWidth = slideWidth * slideNum;
-            $('.slideset').css({"width": allSlideWidth});
-            if(!$('.work_body').length){ 
-                $('.slide_container,  .slide').css({'width': "calc(100vw - 12vmax)", "height": "calc(100vw - 12vmax);"})
-            }
-        })
+        WindowResize();
 
         $('.slideset').css({"width": allSlideWidth})
 
@@ -77,18 +107,24 @@ var current = 0;
     }
 
     function ToonSlide(targetSlide){
-        var h = "50vw";
+        var h = "100vh"
+        var fileName = "pages/"+targetSlide.slice(1)+".html";
+
+        function LoadWork(fileName){
+            $('.work_contents').hide();
+            $('.work_contents').addClass("work_container");
+            $('.work_contents').load(fileName);
+            $('.work_contents'). fadeIn(500);
+        }
         
         $(document).on('click',targetSlide ,function(e){
             $(this).addClass("active_slide");
             $('.slide').not(this).hide();
             $(".slideset").css({"left": 0});
-            $('.slide_container,  .slideset').animate({"width": "100vw", "height":h}, 500, function(){
-                $('.work_contents').hide();
-                $('.work_contents').addClass("work_container");
-                $('.work_contents').load('pages/milleniax.html');
-                $('.work_contents'). fadeIn(500);
-            });
+                $('.slide_container,  .slideset, .slide').animate({"width": "100vw", "height":h}, 500, function(){
+                    LoadWork(fileName);
+                });
+            
             $(this).animate({"width": "100vw", "height":h}, 800);
             $('.home_page_nav').hide();
 
@@ -124,10 +160,11 @@ var current = 0;
             
         }
         $(document).on('click', '.close_btn', function(e){
-            $('.for_loading').fadeIn(500, function(){
+            $('#for_loading').fadeIn(500, function(){
                 defaultHead();
+                WindowResize()
             });
-            $('.for_loading').fadeOut(800);
+            $('#for_loading').fadeOut(800);
         } )
     }
 

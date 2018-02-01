@@ -15,12 +15,20 @@
 
 @font-face {
     font-family: 'GOTHAM';
-    src: url("../font/GOTHAM-MEDIUM.ttf");
+    src: url("../font/Gotham-Book.otf");
   }
 @font-face {
     font-family: 'GOTHAM-bold';
     src: url("../font/GOTHAM-BOLD.ttf");
   }
+@font-face {
+    font-family: 'GOTHAM-ultra';
+    src: url("../font/GOTHAM-ULTRA.ttf");
+}
+
+.prevent_click{
+    pointer-events: none;
+}
 
 body{
     background-color: #FFF;
@@ -37,7 +45,8 @@ a{
     cursor: pointer;
 }
 a:hover{
-    color: #EE465E
+    color: #EE465E;
+    font-weight: bold;
 }
 
 #main_wrapper{
@@ -167,7 +176,7 @@ header{
 }
 .site_title{
     font-weight: bold;
-    color: #EE465E
+    /* color: #EE465E */
 }
 .active{
     font-weight: bold;
@@ -233,7 +242,7 @@ header{
     float:left;
     display: table;
     color: #FFF;
-    background-color: #FDEDE4;
+    background-color: #FEE25A;
     /* background-size: cover; */
     cursor: pointer
 }
@@ -243,43 +252,52 @@ header{
     margin: 0 auto;
     display: table-cell;
     vertical-align: middle;
-    position: relative
+    position: relative;
 }
 .slide_inside > img{
-    width: 40%;
+    width: 30%;
     /* height: 70%; */
-    position: absolute;
+    /* position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 0; */
     margin: auto; 
 }
 
 .slide_inside > div{
     font-weight: bold;
-    position: absolute;
-    top: 45%;
+    /* position: absolute;
+    top: 60%;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 0; */
 }
 .slide_inside > div > h2{
-    font-size: 500%;;
+    font-size: 400%;
+    font-family: 'GOTHAM-ultra'
 }
 
 
-
-.home_page_nav{
+footer{
     width: 100%;
     height: 4.5vmax;
+    position: relative
 }
-.home_arrow_prev{
-    float: left;
-    display: none
+footer > ul > li{
+    display: inline-block;
 }
-.home_arrow_next{
-    float: right
+
+/* .arrows{
+    width: 30%;
+}
+#slide_nav{
+    width: 70%
+} */
+
+#slide_nav > ul > li{
+    cursor: pointer;
+    display: inline-block;
 }
 
 /* ::::::::::::::::::::: Work Contents ::::::::::::::::: */

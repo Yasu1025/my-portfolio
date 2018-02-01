@@ -5,23 +5,30 @@
     <title>Yasuhiro Kitasaka | Front End Developer</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
+   
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsiveStyle.css" /> 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 
-    <div class="for_loading"></div>
+    <div id="for_loading">
+        <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+        </div>
+    </div>
 
     <div id="main_wrapper">
         <header class="container">
                 <nav class="clearfix">
                     <div class="nav_left">
-                        <a href=""><h1 class="site_title">YASUHIRO.K</h1></a>
+                        <a href="/my-portfolio/"><h1 class="site_title">YASUHIRO.K</h1></a>
                     </div>
                     <div class="nav_right">
                         <ul>
                             <li><a id="work_open" class="active">Works</a></li>
-                            <li><a  id="about_open">About</a></li>
+                            <li><a id="about_open">About</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -40,33 +47,34 @@
                         
 
                         <div class="slideset">
-                            <div class="slide01 slide">
+                            <div class="vfw slide">
                                 <div class="slide_inside">
-                                    <img src="https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/1200x630/format/jpg/quality/85/http%3A%2F%2Fi.huffpost.com%2Fgen%2F4142762%2Fimages%2Fn-VANCOUVER-FASHION-WEEK-628x314.jpg">
+                                    <img src="./images/vfw/vfw_top.png">
                                     <div>
                                         <h2>Vancouver Fashion Week</h2>
                                         <p>Graphic and Web development</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="slide02 slide">
+                            <div class="bungobox slide">
                                 <div class="slide_inside">
-                                    <img src="https://i.ytimg.com/vi/WDWPc6ntFOk/maxresdefault.jpg" >
+                                    <img src="./images/bungobox/bb_top.png" >
                                     <div>
-                                        <h2>BUNGOBOX Vancouver</h2>
+                                        <h2>BUNGOBOX</h2>
                                         <p>Social Media Marketer (Internship)</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="slide03 slide">
+                            <div class="milleniax slide">
                                 <div class="slide_inside">
-                                    <img src="./images/milleniax/milleniax.jpg">
+                                    <img src="./images/milleniax/m_top.png">
                                     <div>
                                         <h2>Milleniax</h2>
                                         <p>Web Design</p>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
+                             
                         </div>   
                     </div>
                 </section>
@@ -75,12 +83,20 @@
                 </section>
             </article>
 
-            <footer class="container">
-                <div class="home_page_nav">
-                    <button class="home_arrow_prev"><i class="fa fa-caret-left fa-4x" aria-hidden="true"></i></button>
-                    <button class="home_arrow_next"><i class="fa fa-caret-right fa-4x" aria-hidden="true"></i></button>
-                </div>
-            </footer>
+            <!-- <footer class="container clearfix"> -->
+                <ul>
+                    <li id="prev_arrow" class="arrows"><button class="home_arrow_prev arrow"><i class="fa fa-angle-left fa-3x" aria-hidden="true"></i></button></li>
+                    <li><div id="slide_nav">
+                            <ul></ul>
+                        </div></li>
+                    <li id="next_arrow" class="arrows"><button class="home_arrow_next arrow"><i class="fa fa-angle-right fa-3x" aria-hidden="true"></i></button></li>
+                </ul>
+                <!-- <div class="home_page_nav">
+                    
+                    
+                    
+                </div> -->
+            <!-- </footer> -->
 
         </article> <!-- /content_wrapper -->
 

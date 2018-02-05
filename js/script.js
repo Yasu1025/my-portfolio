@@ -1,7 +1,7 @@
 // Global var
 
 var winWidth = $(window).width();
-var smartPhoneWidth = 600;
+var smartPhoneWidth = 459;
 var tabletWidth = 959;
 
 var headerHeight = $("header").height();

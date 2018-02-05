@@ -346,31 +346,34 @@ header{
   
 
 
-
-
-
 .page_navs{
     position: absolute;
+    
+}
+.page_navs > button{
+    padding: 2em
 }
 .arrow_prev{
-    left: 3%;
+    left: 1%;
+    top: calc(50% - 2em);
     transition: .2s;
     -moz-transition: .2s;
     -ms-transition: .2s;
     -webkit-transition: .2s;
 }
 .arrow_next{
-    right: 3%;
+    right: 1%;
+    top: calc(50% - 2em);
     transition: .2s;
     -moz-transition: .2s;
     -ms-transition: .2s;
     -webkit-transition: .2s;
 }
 .arrow_next:hover{
-    right: 2.8%
+    right: .8%
 }
 .arrow_prev:hover{
-    left: 2.8%
+    left: .8%
 }
 
 

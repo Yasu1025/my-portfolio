@@ -124,7 +124,7 @@ a:hover{
 
 h2, h3{
     font-weight: bold;
-    font-family: 'GOTHAM-BOLD'
+    font-family: 'GOTHAM'
 }
 
 /* ::::::::::::::::::::: about ::::::::::::::::: */
@@ -289,7 +289,7 @@ header{
 }
 .slide_inside > div > h2{
     font-size: 400%;
-    font-family: 'GOTHAM-BOLD';
+    font-family: 'GOTHAM';
 }
 
 

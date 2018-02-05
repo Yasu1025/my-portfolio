@@ -225,7 +225,7 @@ function WindowResize(){
 
         $(window).resize(function(){
             w = $(window).width();
-            h = $(window).height() - headerHeight;
+            h = "100vh" - headerHeight;
             $('#about_page, #about_me').css({"width": w, "height": h});
             if(flag){
                 $('#about_page').css({"right": 0});
@@ -240,7 +240,7 @@ function WindowResize(){
             flag = true;
                 // PreventScroll();
             w = $(window).width();
-            h = $(window).height() - headerHeight;
+            h = "100vh" - headerHeight;
             $('#about_page, #about_me').css({"width": w, "height": h+"30px"});
             $('#about_page').load('pages/about.html');  
             

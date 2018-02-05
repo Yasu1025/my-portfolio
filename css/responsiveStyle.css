@@ -32,6 +32,19 @@
     #about_me h1{
         width:100%;
     }
+
+    .role_descriptions > .desc_left{
+        float: none;
+        width:100%;
+        margin-right: 0;
+    }
+    .role_descriptions > .desc_right{
+        float: none;
+        width:100%;
+        margin-right: 0;
+    }
+
+
 } /* smartphone end   */
 
 

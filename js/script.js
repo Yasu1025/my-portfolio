@@ -248,6 +248,7 @@ function WindowResize(){
             $('#about_open').addClass("active");
             $('#work_open').removeClass("active");
             $('.page_navs').hide();
+            history.replaceState('','','about');            
             
         });
 

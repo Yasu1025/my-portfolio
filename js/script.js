@@ -183,25 +183,7 @@ function WindowResize(){
 
         
 
-        var defaultHead = function(){
-            $('.slide').show();
-            $(".slideset").css({"left": 0});
-            $('.slide, .slide_container,  .slideset').css({"width": defaultWidth, "height":defaulHeight})
-            $('.work_contents').show();
-            $(".down_arrow").hide();
-            $('.close_work').hide();
-            $('.work_contents').removeClass("work_container");
-            $('.slide').removeClass('active_slide prevent_click');
-            //$(".slide01").css({"width": originalWidth, "height":originalheight});
-            $('.page_navs').show();
-            $('.work_contents').empty();
-            $('.slideset').css({
-                'left': current * -slideWidth
-            });
-            slideWidth = $('.slide').outerWidth();
-            allSlideWidth = slideWidth * slideNum;
-            $('.slideset').css({"width": allSlideWidth});
-        }
+       
         $(document).on('click', '.close_btn', function(e){
             $('#for_loading').fadeIn(500, function(){
                 defaultHead();
@@ -209,6 +191,27 @@ function WindowResize(){
             });
             $('#for_loading').fadeOut(800);
         } )
+    }
+
+
+    function defaultHead(){
+        $('.slide').show();
+        $(".slideset").css({"left": 0});
+        $('.slide, .slide_container,  .slideset').css({"width": defaultWidth, "height":defaulHeight})
+        $('.work_contents').show();
+        $(".down_arrow").hide();
+        $('.close_work').hide();
+        $('.work_contents').removeClass("work_container");
+        $('.slide').removeClass('active_slide prevent_click');
+        //$(".slide01").css({"width": originalWidth, "height":originalheight});
+        $('.page_navs').show();
+        $('.work_contents').empty();
+        $('.slideset').css({
+            'left': current * -slideWidth
+        });
+        slideWidth = $('.slide').outerWidth();
+        allSlideWidth = slideWidth * slideNum;
+        $('.slideset').css({"width": allSlideWidth});
     }
 
     function SlideFromRight(){
@@ -235,15 +238,16 @@ function WindowResize(){
             $('#about_page').show();
             $(this).addClass("prevent_click");
             flag = true;
-                PreventScroll();
+                // PreventScroll();
             w = $(window).width();
             h = $(window).height() - headerHeight;
             $('#about_page, #about_me').css({"width": w, "height": h});
             $('#about_page').load('pages/about.html');  
             
-            
             $('#about_page').stop().animate({"right": 0}, 800, function(){
                 $("#about_me").fadeIn(500);
+                defaultHead();
+                WindowResize();
             });
             $('#about_open').addClass("active");
             $('#work_open').removeClass("active");

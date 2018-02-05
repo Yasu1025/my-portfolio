@@ -3,21 +3,36 @@
     body{
         font-size: 65%
     }
+
+    header{
+        height: 10vmax;
+        line-height: 10vmax;
+        font-size: 1.2em
+    }
     .slide_container, .work_slider, .slide, .slide_inside, #about_page{
         width: 100vw;
-        /* height: 100vw; */
+        height: calc(100vh - 10vmax); 
     }
 
     .slide_inside > img{
         width: 50%;
     }
+
+    .arrow_prev{
+        top: 50%
+    }
+    .arrow_next{
+        top: 50%
+    }
+    
     #about_page{
         text-align: center;
+        
     }
     #about_me h1{
         width:100%;
     }
-}
+} /* smartphone end   */
 
 
 
@@ -32,7 +47,7 @@
         font-size: 80%
     }
     .slide_inside > img{
-        width: 50%;
+        width: 40%;
     }
 }
 

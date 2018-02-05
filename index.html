@@ -23,7 +23,7 @@
         <header class="container">
                 <nav class="clearfix">
                     <div class="nav_left">
-                        <a href="/my-portfolio/"><h1 class="site_title">YASUHIRO.K</h1></a>
+                            <h1 class="site_title"><a href="/my-portfolio/">Yasuhiro Kitasaka</a></h1>
                     </div>
                     <div class="nav_right">
                         <ul>
@@ -34,17 +34,16 @@
                 </nav>
         </header>
 
+
         <article id="content_wrapper">
 
+                <section id="about_page"></section>
+
             <article id="work_wrapper">
-
                 <section class="slide_container">
-
-                        <section id="about_page"></section>
-                        
                     <div class="work_slider">
+                            <a class="down_arrow"><span></span></a>
 
-                        
 
                         <div class="slideset">
                             <div class="vfw slide">
@@ -53,15 +52,19 @@
                                     <div>
                                         <h2>Vancouver Fashion Week</h2>
                                         <p>Graphic and Web development</p>
+                                        
                                     </div>
                                 </div>
                             </div>
+
+                            
+
                             <div class="bungobox slide">
                                 <div class="slide_inside">
                                     <img src="./images/bungobox/bb_top.png" >
                                     <div>
                                         <h2>BUNGOBOX</h2>
-                                        <p>Social Media Marketer (Internship)</p>
+                                        <p>Social Media Marketer</p>
                                     </div>
                                 </div>
                             </div>
@@ -83,20 +86,18 @@
                 </section>
             </article>
 
-            <!-- <footer class="container clearfix"> -->
-                <ul>
-                    <li id="prev_arrow" class="arrows"><button class="home_arrow_prev arrow"><i class="fa fa-angle-left fa-3x" aria-hidden="true"></i></button></li>
-                    <li><div id="slide_nav">
-                            <ul></ul>
-                        </div></li>
-                    <li id="next_arrow" class="arrows"><button class="home_arrow_next arrow"><i class="fa fa-angle-right fa-3x" aria-hidden="true"></i></button></li>
-                </ul>
-                <!-- <div class="home_page_nav">
-                    
-                    
-                    
-                </div> -->
-            <!-- </footer> -->
+            <div class="arrow_prev page_navs">
+                <button class="home_arrow_prev arrow"><i class="fa fa-angle-left fa-3x" aria-hidden="true"></i></button>
+            </div>
+            <div class="arrow_next page_navs">
+                <button class="home_arrow_next arrow"><i class="fa fa-angle-right fa-3x" aria-hidden="true"></i></button>
+            </div>
+            <div class="close_work">
+                    <span class="close_btn"><i class="fa fa-times"></i></span>
+            </div>
+            <div id="slide_nav" class="page_navs">
+                <ul></ul>
+            </div>
 
         </article> <!-- /content_wrapper -->
 

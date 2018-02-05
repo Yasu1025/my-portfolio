@@ -32,6 +32,9 @@
     #about_me h1{
         width:100%;
     }
+    .slide_inside > div > h2{
+        font-size: 200%;
+    }
 
     .role_descriptions > .desc_left{
         float: none;
@@ -61,6 +64,10 @@
     }
     .slide_inside > img{
         width: 40%;
+    }
+
+    .slide_inside > div > h2{
+        font-size: 300%;
     }
 }
 

@@ -241,7 +241,7 @@ function WindowResize(){
                 // PreventScroll();
             w = $(window).width();
             h = $(window).height() - headerHeight;
-            $('#about_page, #about_me').css({"width": w, "height": h});
+            $('#about_page, #about_me').css({"width": w, "height": h+"30px"});
             $('#about_page').load('pages/about.html');  
             
             $('#about_page').stop().animate({"right": 0}, 800, function(){

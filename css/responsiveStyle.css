@@ -1,7 +1,7 @@
  /* Smartphone */
-@media screen and ( max-width:650px) {
+@media screen and ( max-width:459px) {
     body{
-        font-size: 90%
+        font-size: 80%
     }
 
     header{

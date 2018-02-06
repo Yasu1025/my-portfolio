@@ -206,10 +206,11 @@ function WindowResize(){
         //$(".slide01").css({"width": originalWidth, "height":originalheight});
         $('.page_navs').show();
         $('.work_contents').empty();
+        slideWidth = $('.slide').outerWidth();
         $('.slideset').css({
             'left': current * -slideWidth
         });
-        slideWidth = $('.slide').outerWidth();
+        
         allSlideWidth = slideWidth * slideNum;
         $('.slideset').css({"width": allSlideWidth});
     }

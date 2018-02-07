@@ -7,7 +7,7 @@ var tabletWidth = 959;
 var headerHeight = $("header").height();
 var defaultWidth = winWidth <= smartPhoneWidth ? "100vw" : "calc(100vw - 12vmax)";
 //var defaulHeight = winWidth <= smartPhoneWidth ? "calc(100vh - 10vmax)" : "calc(100vh - 10vmax)";
-var defaulHeight = "calc(100vh - 10vmax)";
+var defaulHeight = "100%";
 
 var current = 0;
 var slideWidth = $('.slide').outerWidth();
@@ -138,6 +138,7 @@ function WindowResize(){
     function ToonSlide(targetSlide){
 
         var fileName = "pages/"+targetSlide.slice(1)+".html";
+        
 
         var LoadWork = function(fileName){
             $('.work_contents').hide();
@@ -146,12 +147,21 @@ function WindowResize(){
             $('.work_contents'). fadeIn(500);
         }
             $(document).on('click',targetSlide ,function(e){
+                
                 h = $(window).height() - headerHeight;
                 $(this).addClass("active_slide prevent_click");
                 $(".down_arrow").fadeIn(1000);
                 $('.slide').not(this).hide();
                 $(".slideset").css({"left": 0});
+                
+                $('#work_wrapper').animate({
+                    "width":"100%",
+                    "height":$(window).height()-headerHeight, 
+                    "margin": 0
+                    }, 500);
+                
                 $('.slide_container,  .slideset, .slide').animate({"width": "100vw", "height":h}, 500, function(){
+                    $('#work_wrapper').animate({"height": "100%"},500)
                     LoadWork(fileName);
                     
                 });
@@ -210,6 +220,7 @@ function WindowResize(){
         $('.slideset').css({
             'left': current * -slideWidth
         });
+        $('#work_wrapper').css({"width":defaultWidth, "margin":"0 auto"});
         
         allSlideWidth = slideWidth * slideNum;
         $('.slideset').css({"width": allSlideWidth});
@@ -256,7 +267,7 @@ function WindowResize(){
             
         });
 
-        $(document).on('click','#work_open',function(){
+        $(document).on('click','#work_open, .close_about',function(){
             $("#about_open").removeClass("prevent_click");
             flag = false;
             // $(".test").fadeOut(500).queue(function(){

@@ -15,6 +15,10 @@
 
 @font-face {
     font-family: 'GOTHAM';
+    src: url("../font/Gotham-Light.otf");
+  }
+  @font-face {
+    font-family: 'GOTHAM-BOOK';
     src: url("../font/Gotham-Book.otf");
   }
 @font-face {
@@ -122,9 +126,9 @@ a:hover{
 
 
 
-h2, h3{
+h1, h2, h3{
     font-weight: bold;
-    font-family: 'GOTHAM'
+    font-family: 'GOTHAM-BOOK'
 }
 
 /* ::::::::::::::::::::: about ::::::::::::::::: */
@@ -173,6 +177,14 @@ h2, h3{
     display: inline-block;
     margin-right:1em;
 }
+
+.close_about{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: 2%;
+}
 .sns_icons{
     font-size: 2em
 }
@@ -184,11 +196,20 @@ header{
     width: 100%;
     height: 5.5vmax;
     /* text-align: center; */
-    line-height: 5.5vmax
+    line-height: 5.5vmax;
+    line-height: 1
+}
+
+nav{
+    position: relative;
+    height: 100%;
 }
 .site_title{
     /* font-weight: bold; */
     /* color: #EE465E */
+}
+.title_job{
+    font-size: small
 }
 .active{
     font-weight: bold;
@@ -197,12 +218,18 @@ header{
 }
 
 .nav_left{
-    float: left;
+    position: absolute;
+    left: 0;
+    bottom: 25%;
     width:50%;
-    text-align: left
+    text-align: left;
+    
 }
+
 .nav_right{
-    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 25%;
     width:50%;
     text-align: right
 }
@@ -223,15 +250,15 @@ header{
 }
 
 #work_wrapper{
-    width: 100%;
-    height: 100%
-}
-.slide_container{
     width: calc(100vw - 12vmax);
     height: calc(100vh - 10vmax);
+    margin: 0 auto;
+}
+.slide_container{
+    width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
-    margin: 0 auto;
 }
 .work_slider{
     overflow: hidden;
@@ -242,11 +269,12 @@ header{
 }
 .slideset{
     position: absolute;
+    height: 100%;
 }
 .work_slider, .slide{
     margin: 0 auto;
     width: calc(100vw - 12vmax);
-    height: calc(100vh - 10vmax);
+    height: 100%;
 }
 
 .slide{
@@ -289,7 +317,6 @@ header{
 }
 .slide_inside > div > h2{
     font-size: 400%;
-    font-family: 'GOTHAM';
 }
 
 
@@ -348,6 +375,7 @@ header{
 
 .page_navs{
     position: absolute;
+    color: #444
     
 }
 .page_navs > button{

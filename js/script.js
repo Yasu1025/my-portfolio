@@ -134,7 +134,7 @@ function WindowResize(){
             endX = 0;
             diffX = 0;
         })
-        (this).click(function(){return false})
+        
         $('.slide').bind('touchend', function(e) {
         
         if (diffX > 100) {

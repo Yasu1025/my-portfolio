@@ -95,23 +95,23 @@ function WindowResize(){
             
         }
 
-        var GoNext = function(){
+    var GoNext = function(){
             // activeSlide.removeClass("active");
             current++;
             // activeSlide = $("#slide_nav > ul > li").eq(current);
             navArrowshowHide();
             // activeSlide.addClass("active");
             Sliding();
-        }
+    }
 
-        var GoPrev = function(){
+    var GoPrev = function(){
             // activeSlide.removeClass("active");
             current--;
             // activeSlide = $("#slide_nav > ul > li").eq(current);
             navArrowshowHide();
             // activeSlide.addClass("active");
             Sliding();
-        }
+    }
 
         $('.home_arrow_prev').click(function(){
             GoPrev();
@@ -129,11 +129,18 @@ function WindowResize(){
             endX = e.changedTouches[0].pageX;//The point X when you end Flick
             diffX = Math.round(startX - endX);//point X (start - end)
         });
+        $('.slide').click(function(){
+            startX = 0;
+            endX = 0;
+            diffX = 0;
+        })
+        (this).click(function(){return false})
         $('.slide').bind('touchend', function(e) {
+        
         if (diffX > 100) {
-            GoNext();
+            GoNext();  
         } else if (diffX < -100) {
-            if(current !== 0) GoPrev();
+            GoPrev();
         };
         });
 

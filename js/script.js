@@ -129,20 +129,21 @@ function WindowResize(){
             endX = e.changedTouches[0].pageX;//The point X when you end Flick
             diffX = Math.round(startX - endX);//point X (start - end)
         });
-        $('.slide').click(function(){
+
+
+        $('.slide').bind('touchend', function(e) {
+        if (diffX > 100) {
+            GoNext();
             startX = 0;
             endX = 0;
             diffX = 0;
-        })
-        
-        $('.slide').bind('touchend', function(e) {
-        
-        if (diffX > 100) {
-            GoNext();  
         } else if (diffX < -100) {
             GoPrev();
+            startX = 0;
+            endX = 0;
+            diffX = 0;
         };
-        });
+        })
 
         // Keybord -> and <-
         

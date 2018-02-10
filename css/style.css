@@ -204,12 +204,11 @@ nav{
     position: relative;
     height: 100%;
 }
-.site_title{
-    /* font-weight: bold; */
-    /* color: #EE465E */
+.site_title > h1{
+    
 }
 .title_job{
-    font-size: small
+    font-size: .8em
 }
 .active{
     font-weight: bold;
@@ -222,8 +221,10 @@ nav{
     left: 0;
     bottom: 25%;
     width:50%;
-    text-align: left;
-    
+    text-align: center;
+}
+.nav_left div{
+    float: left
 }
 
 .nav_right{

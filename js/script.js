@@ -22,12 +22,14 @@ $(document).ready(function(){
     // SlideNavi();
     navArrowshowHide();
     Slider();
+    FlickSlider();
     SlideFromRight();
     CloseWork();
 
     ToonSlide('.vfw');
     ToonSlide('.bungobox');
     ToonSlide('.milleniax');
+    
 
     $('.down_arrow').click(function(){
         $("html, body").animate({scrollTop:$(".work_contents").offset().top}, 1000)
@@ -77,7 +79,7 @@ function WindowResize(){
         $('.slideset').css({"width": allSlideWidth})
 
 
-        var Sliding = function(){
+    var Sliding = function(){
             if(current < 0){
                 current = slideNum -1;
                 // activeSlide.addClass("active");
@@ -118,6 +120,24 @@ function WindowResize(){
             GoNext();
         })
 
+        // Flick
+
+        $('.slide').bind('touchstart', function(e) {
+            startX = e.changedTouches[0].pageX;//the point X when you start Flick
+        });
+        $('.slide').bind('touchmove', function(e) {
+            endX = e.changedTouches[0].pageX;//The point X when you end Flick
+            diffX = Math.round(startX - endX);//point X (start - end)
+        });
+        $('.slide').bind('touchend', function(e) {
+        if (diffX > 100) {
+            GoNext();
+        } else if (diffX < -100) {
+            if(current !== 0) GoPrev();
+        };
+        });
+
+        // Keybord -> and <-
         
         $('html').keyup(function(e){
             if(!$('article').hasClass("work_body")){
@@ -133,6 +153,10 @@ function WindowResize(){
             }
             }   
         })
+    }
+
+    function FlickSlider(){
+        
     }
 
     function ToonSlide(targetSlide){

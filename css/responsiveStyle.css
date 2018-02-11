@@ -1,13 +1,20 @@
  /* Smartphone */
-@media screen and ( max-width:600px) {
+@media screen and ( max-width:459px) {
     body{
-        font-size: 65%
+        font-size: 80%
     }
 
     header{
         height: 10vmax;
-        line-height: 10vmax;
+        
         font-size: 1.2em
+    }
+
+    #work_open{
+        display: none
+    }
+    .close_about{
+        display: block
     }
     .slide_container, .work_slider, .slide, .slide_inside, #about_page{
         width: 100vw;
@@ -30,8 +37,69 @@
         
     }
     #about_me h1{
-        width:100%;
+        /* width:100%; */
+        display: none;
     }
+    .mylogo_about{
+        width: 150px;
+        position: static;
+        opacity: 1;
+        margin-bottom: 2em
+    }
+
+    .slide_inside > div > h2{
+        font-size: 200%;
+    }
+
+    .role_descriptions > .desc_left{
+        float: none;
+        width:100%;
+        margin-right: 0;
+    }
+    .role_descriptions > .desc_right{
+        float: none;
+        width:100%;
+        margin-right: 0;
+    }
+
+    /* Works */
+    #work_wrapper{
+        margin: 0;
+        width: 100%;
+    }
+    .work_container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .company_desc{
+        width: 100%;
+        padding: 0 2em
+    }
+    .role_descriptions{
+        margin: 0 auto 4em auto;
+        width: 90%;
+        text-align: center
+    }
+    .desc_left{
+        margin-bottom: 1em
+    }
+    .grey_bg_works{
+        padding: 3em 0;
+    }
+    .full_img{
+        padding: 0
+    }
+    .close_work{
+        width: 8.5vmax;
+        height: 8.5vmax;
+    }
+    .close_work > span{
+        width: 8.5vmax;
+        height: 8.5vmax;
+        line-height: 8.5vmax
+    }
+
+
 } /* smartphone end   */
 
 
@@ -48,6 +116,10 @@
     }
     .slide_inside > img{
         width: 40%;
+    }
+
+    .slide_inside > div > h2{
+        font-size: 300%;
     }
 }
 

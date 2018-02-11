@@ -1,13 +1,13 @@
 // Global var
 
 var winWidth = $(window).width();
-var smartPhoneWidth = 600;
+var smartPhoneWidth = 459;
 var tabletWidth = 959;
 
 var headerHeight = $("header").height();
 var defaultWidth = winWidth <= smartPhoneWidth ? "100vw" : "calc(100vw - 12vmax)";
 //var defaulHeight = winWidth <= smartPhoneWidth ? "calc(100vh - 10vmax)" : "calc(100vh - 10vmax)";
-var defaulHeight = "calc(100vh - 10vmax)";
+var defaulHeight = "100%";
 
 var current = 0;
 var slideWidth = $('.slide').outerWidth();
@@ -22,12 +22,16 @@ $(document).ready(function(){
     // SlideNavi();
     navArrowshowHide();
     Slider();
+    FlickSlider();
     SlideFromRight();
     CloseWork();
 
     ToonSlide('.vfw');
     ToonSlide('.bungobox');
     ToonSlide('.milleniax');
+    ToonSlide('.crystalgallery');
+    ToonSlide('.myportfolio');
+    
 
     $('.down_arrow').click(function(){
         $("html, body").animate({scrollTop:$(".work_contents").offset().top}, 1000)
@@ -77,7 +81,7 @@ function WindowResize(){
         $('.slideset').css({"width": allSlideWidth})
 
 
-        var Sliding = function(){
+    var Sliding = function(){
             if(current < 0){
                 current = slideNum -1;
                 // activeSlide.addClass("active");
@@ -93,23 +97,23 @@ function WindowResize(){
             
         }
 
-        var GoNext = function(){
+    var GoNext = function(){
             // activeSlide.removeClass("active");
             current++;
             // activeSlide = $("#slide_nav > ul > li").eq(current);
             navArrowshowHide();
             // activeSlide.addClass("active");
             Sliding();
-        }
+    }
 
-        var GoPrev = function(){
+    var GoPrev = function(){
             // activeSlide.removeClass("active");
             current--;
             // activeSlide = $("#slide_nav > ul > li").eq(current);
             navArrowshowHide();
             // activeSlide.addClass("active");
             Sliding();
-        }
+    }
 
         $('.home_arrow_prev').click(function(){
             GoPrev();
@@ -118,6 +122,34 @@ function WindowResize(){
             GoNext();
         })
 
+        // Flick
+
+        $('.slide').bind('touchstart', function(e) {
+            startX = e.changedTouches[0].pageX;//the point X when you start Flick
+        });
+        $('.slide').bind('touchmove', function(e) {
+            endX = e.changedTouches[0].pageX;//The point X when you end Flick
+            diffX = Math.round(startX - endX);//point X (start - end)
+        });
+
+
+        $('.slide').bind('touchend', function(e) {
+        if (diffX > 100) {
+            GoNext();
+            startX = 0;
+            endX = 0;
+            diffX = 0;
+        } else if (diffX < -100) {
+            if(current !== 0){
+                GoPrev();
+                startX = 0;
+                endX = 0;
+                diffX = 0;
+            }
+        };
+        })
+
+        // Keybord -> and <-
         
         $('html').keyup(function(e){
             if(!$('article').hasClass("work_body")){
@@ -135,9 +167,14 @@ function WindowResize(){
         })
     }
 
+    function FlickSlider(){
+        
+    }
+
     function ToonSlide(targetSlide){
 
         var fileName = "pages/"+targetSlide.slice(1)+".html";
+        
 
         var LoadWork = function(fileName){
             $('.work_contents').hide();
@@ -146,12 +183,21 @@ function WindowResize(){
             $('.work_contents'). fadeIn(500);
         }
             $(document).on('click',targetSlide ,function(e){
+                
                 h = $(window).height() - headerHeight;
                 $(this).addClass("active_slide prevent_click");
                 $(".down_arrow").fadeIn(1000);
                 $('.slide').not(this).hide();
                 $(".slideset").css({"left": 0});
+                
+                $('#work_wrapper').animate({
+                    "width":"100%",
+                    "height":$(window).height()-headerHeight, 
+                    "margin": 0
+                    }, 500);
+                
                 $('.slide_container,  .slideset, .slide').animate({"width": "100vw", "height":h}, 500, function(){
+                    $('#work_wrapper').animate({"height": "100%"},500)
                     LoadWork(fileName);
                     
                 });
@@ -164,7 +210,7 @@ function WindowResize(){
     function ShowCloseBtn(){
         var btn = $('.close_work');
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
+            if ($(this).scrollTop() > 300) {
                 btn.fadeIn();
             } else {
                 btn.fadeOut();
@@ -183,25 +229,7 @@ function WindowResize(){
 
         
 
-        var defaultHead = function(){
-            $('.slide').show();
-            $(".slideset").css({"left": 0});
-            $('.slide, .slide_container,  .slideset').css({"width": defaultWidth, "height":defaulHeight})
-            $('.work_contents').show();
-            $(".down_arrow").hide();
-            $('.close_work').hide();
-            $('.work_contents').removeClass("work_container");
-            $('.slide').removeClass('active_slide prevent_click');
-            //$(".slide01").css({"width": originalWidth, "height":originalheight});
-            $('.page_navs').show();
-            $('.work_contents').empty();
-            $('.slideset').css({
-                'left': current * -slideWidth
-            });
-            slideWidth = $('.slide').outerWidth();
-            allSlideWidth = slideWidth * slideNum;
-            $('.slideset').css({"width": allSlideWidth});
-        }
+       
         $(document).on('click', '.close_btn', function(e){
             $('#for_loading').fadeIn(500, function(){
                 defaultHead();
@@ -209,6 +237,29 @@ function WindowResize(){
             });
             $('#for_loading').fadeOut(800);
         } )
+    }
+
+
+    function defaultHead(){
+        $('.slide').show();
+        $(".slideset").css({"left": 0});
+        $('.slide, .slide_container,  .slideset').css({"width": defaultWidth, "height":defaulHeight})
+        $('.work_contents').show();
+        $(".down_arrow").hide();
+        $('.close_work').hide();
+        $('.work_contents').removeClass("work_container");
+        $('.slide').removeClass('active_slide prevent_click');
+        //$(".slide01").css({"width": originalWidth, "height":originalheight});
+        $('.page_navs').show();
+        $('.work_contents').empty();
+        slideWidth = $('.slide').outerWidth();
+        $('.slideset').css({
+            'left': current * -slideWidth
+        });
+        $('#work_wrapper').css({"width":defaultWidth, "margin":"0 auto"});
+        
+        allSlideWidth = slideWidth * slideNum;
+        $('.slideset').css({"width": allSlideWidth});
     }
 
     function SlideFromRight(){
@@ -222,7 +273,7 @@ function WindowResize(){
 
         $(window).resize(function(){
             w = $(window).width();
-            h = $(window).height() - headerHeight;
+            h = "100vh" - headerHeight;
             $('#about_page, #about_me').css({"width": w, "height": h});
             if(flag){
                 $('#about_page').css({"right": 0});
@@ -235,23 +286,24 @@ function WindowResize(){
             $('#about_page').show();
             $(this).addClass("prevent_click");
             flag = true;
-                PreventScroll();
+                // PreventScroll();
             w = $(window).width();
-            h = $(window).height() - headerHeight;
-            $('#about_page, #about_me').css({"width": w, "height": h});
+            h = "100vh" - headerHeight;
+            $('#about_page, #about_me').css({"width": w, "height": h+"30px"});
             $('#about_page').load('pages/about.html');  
-            
             
             $('#about_page').stop().animate({"right": 0}, 800, function(){
                 $("#about_me").fadeIn(500);
+                defaultHead();
+                WindowResize();
             });
             $('#about_open').addClass("active");
             $('#work_open').removeClass("active");
-            $('.page_navs').hide();
+            $('.page_navs').hide();       
             
         });
 
-        $(document).on('click','#work_open',function(){
+        $(document).on('click','#work_open, .close_about',function(){
             $("#about_open").removeClass("prevent_click");
             flag = false;
             // $(".test").fadeOut(500).queue(function(){

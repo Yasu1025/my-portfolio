@@ -177,6 +177,9 @@ h1, h2, h3{
     display: inline-block;
     margin-right:1em;
 }
+#about_me ul li:last-child{
+    margin-right: 0
+}
 
 .close_about{
     display: none;

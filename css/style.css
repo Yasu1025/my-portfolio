@@ -189,6 +189,14 @@ h1, h2, h3{
     font-size: 2em
 }
 
+.mylogo_about{
+    width: 400px;
+    opacity: .3;
+    position: absolute;
+    bottom: 4%;
+    right: 4%;
+}
+
 
 /* ::::::::::::::::::::: header ::::::::::::::::: */
 

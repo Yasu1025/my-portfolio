@@ -29,6 +29,8 @@ $(document).ready(function(){
     ToonSlide('.vfw');
     ToonSlide('.bungobox');
     ToonSlide('.milleniax');
+    ToonSlide('.crystalgallery');
+    ToonSlide('.myportfolio');
     
 
     $('.down_arrow').click(function(){
@@ -138,10 +140,12 @@ function WindowResize(){
             endX = 0;
             diffX = 0;
         } else if (diffX < -100) {
-            GoPrev();
-            startX = 0;
-            endX = 0;
-            diffX = 0;
+            if(current !== 0){
+                GoPrev();
+                startX = 0;
+                endX = 0;
+                diffX = 0;
+            }
         };
         })
 

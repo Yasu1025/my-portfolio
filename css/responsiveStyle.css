@@ -37,8 +37,16 @@
         
     }
     #about_me h1{
-        width:100%;
+        /* width:100%; */
+        display: none;
+        opacity: 1;
+        margin-bottom: 2em
     }
+    .mylogo_about{
+        width: 150px;
+        position: static
+    }
+
     .slide_inside > div > h2{
         font-size: 200%;
     }
